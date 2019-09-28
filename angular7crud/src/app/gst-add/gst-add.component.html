@@ -1,53 +1,51 @@
 <div class="card">
-    <div class="body">
-        <form [formGroup]="angForm" novalidate>
+        <div class="card-body">
+          <form [formGroup]="angForm" novalidate>
 
             <div class="form-group">
-                <label for="" class="col-md-4">Person Name</label>
-                <input type="text" class="form-control" formControlName="person_name"/>
+              <label class="col-md-4">Person Name</label>
+              <input type="text" class="form-control" formControlName="person_name" #person_name />
             </div>
-            <div *ngIf="angForm.controls['person_name'].invalid && 
-                        (angForm.controls[person_name].dirty || 
-                        angForm.control[person_name].touched)" 
+            <div *ngIf="angForm.controls['person_name'].invalid 
+                        && (angForm.controls['person_name'].dirty 
+                        || angForm.controls['person_name'].touched)" 
                  class="alert alert-danger">
-                <div *ngIf="angForm.controls[person_name].errors.required">
-                    Person Name is Required.
-                </div>
+              <div *ngIf="angForm.controls['person_name'].errors.required">
+                Person Name is required.
+              </div>
             </div>
 
             <div class="form-group">
-                <label for="" class="col-md-4">Business Name</label>
-                <input type="text" class="form-control" formControlName="business_name"/>
+              <label class="col-md-4">Business Name </label>
+              <input type="text" class="form-control" formControlName="business_name" #business_name />
             </div>
-            <div *ngIf="angForm.controls['person_business'].invalid && 
-                        (angForm.controls[person_business].dirty || 
-                        angForm.control[person_business].touched)" 
+            <div *ngIf="angForm.controls['business_name'].invalid 
+                        && (angForm.controls['business_name'].dirty 
+                        || angForm.controls['business_name'].touched)" 
                  class="alert alert-danger">
-                <div *ngIf="angForm.controls[person_business].errors.required">
-                    Person Business is Required.
-                </div>
+              <div *ngIf="angForm.controls['business_name'].errors.required">
+                Person Business is required.
+              </div>
             </div>
 
             <div class="form-group">
-                <label for="" class="col-md-4">Business GST number</label>
-                <input type="text" class="form-control" formControlName="buisiness_gst_number"/>
+              <label class="col-md-4">Business GST Number </label>
+              <input type="text" class="form-control" formControlName="business_gst_number" #business_gst_number />
             </div>
-            <div *ngIf="angForm.controls['buisiness_gst_number'].invalid && 
-                        (angForm.controls[buisiness_gst_number].dirty || 
-                        angForm.control[buisiness_gst_number].touched)" 
+            <div *ngIf="angForm.controls['business_gst_number'].invalid 
+                        && (angForm.controls['business_gst_number'].dirty 
+                        || angForm.controls['business_gst_number'].touched)" 
                  class="alert alert-danger">
-                <div *ngIf="angForm.controls[buisiness_gst_number].errors.required">
-                    Business GST number is Required.
-                </div>
+              <div *ngIf="angForm.controls['business_gst_number'].errors.required">
+                Business GST Number is required.
+              </div>
             </div>
 
             <div class="form-group">
-                <button type="submit"
-                        [disabled]="angForm.pristine || angForm.ivalid" 
-                        class="btn btn-primary">
-                    Add Business
-                </button>
+              <button type="submit" 
+              [disabled]="angForm.pristine || angForm.invalid" 
+              class="btn btn-primary">Add Business</button>
             </div>
-        </form>
-    </div>
-</div>
+          </form>
+        </div>
+      </div>
