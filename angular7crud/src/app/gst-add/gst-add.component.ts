@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-gst-add',
@@ -8,7 +8,18 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class GstAddComponent implements OnInit {
 
-  constructor() { }
+  angForm: FormGroup;
+  constructor(private fb: FormBuilder) { 
+    this.createForm();
+  }
+
+  createForm(){
+    this.angForm = this.fb.group({
+      person_name: ['', Validators.required],
+      business_name: ['', Validators.required],
+      business_gst_number: ['', Validators.required]
+    });
+  }
 
   ngOnInit() {
   }
