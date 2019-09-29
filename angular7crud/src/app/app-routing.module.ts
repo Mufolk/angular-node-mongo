@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { GstAddComponent } from './gst-add/gst-add.component';
-import { GstGetComponent } from './gst-get/gst-get.component';
-import { GstEditComponent } from './gst-edit/gst-edit.component';
+import { GstAddComponent } from './components/gst-add/gst-add.component';
+import { GstGetComponent } from './components/gst-get/gst-get.component';
+import { GstEditComponent } from './components/gst-edit/gst-edit.component';
 
 
 const routes: Routes = [

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { BusinessService } from '../../services/business.service';
 
 @Component({
   selector: 'app-gst-add',
@@ -9,7 +10,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 export class GstAddComponent implements OnInit {
 
   angForm: FormGroup;
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder, private bs:BusinessService) { 
     this.createForm();
   }
 
@@ -19,6 +20,15 @@ export class GstAddComponent implements OnInit {
       business_name: ['', Validators.required],
       business_gst_number: ['', Validators.required]
     });
+  }
+
+  addBusiness(person_name, business_name, business_gst_number){
+    let data = {
+      person_name: person_name,
+      business_name: business_name,
+      business_gst_number: business_gst_number
+    }
+    this.bs.addBusiness(data);
   }
 
   ngOnInit() {
