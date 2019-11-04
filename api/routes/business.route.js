@@ -7,7 +7,8 @@ let Business = require('../models/Business');
 
 //Defined Store Route
 businessRoutes.route('/add').post((req, res) => {
-    let business = new Business(req, res);
+    console.log('entrei aqui');
+    let business = new Business(req.body);
     business.save()
         .then(business => {
             res.status(200).json({'business': 'business in added succsessfully'});
@@ -15,6 +16,7 @@ businessRoutes.route('/add').post((req, res) => {
         .catch(err => {
             res.status(400).send("unable to save to database");
         });
+    console.log('added business')
 });
 
 //Defined get data (index or listing) route

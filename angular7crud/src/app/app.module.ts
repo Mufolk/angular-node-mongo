@@ -24,7 +24,7 @@ import { BusinessService } from './services/business.service';
     AppRoutingModule,
     SlimLoadingBarModule,
     ReactiveFormsModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [
     BusinessService,
