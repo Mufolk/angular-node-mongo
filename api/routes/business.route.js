@@ -30,8 +30,9 @@ businessRoutes.route('/').get( (req, res) => {
     });
 });
 
-//Defined edit route
-businessRoutes.route('/edit/:id').get( (req, res) => {
+//Defined find one business route
+businessRoutes.route('/:id').get( (req, res) => {
+    console.log('entrei');
     let id = req.params.id;
     Business.findById(id, (err, business) => {
         res.json(business);
@@ -39,7 +40,7 @@ businessRoutes.route('/edit/:id').get( (req, res) => {
 });
 
 //Defined update route
-businessRoutes.route('/update/:id').post((req,res)=>{
+businessRoutes.route('/:id').post((req,res)=>{
     Business.findById(req.params.id, (err, nex, business) => {
         if(!business)
             return next(new Error('Could not load Document'));

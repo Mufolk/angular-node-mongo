@@ -9,7 +9,7 @@ const config = require('./DB');
 
 //Connects the DB
 //call the models
-const businessRoute = require('./routes/business.route');
+const businessRoute = require('./business/index');
 mongoose.Promise = global.Promise;
 // mongoose.connect(config.DB, { userNewUrlParser: true }).then(
 //     () => { console.log('Database is connected') },
@@ -31,7 +31,7 @@ mongoose.connect(db.mongoURI, configuration)
 const app = express();
 app.use(bodyParser.json()); // supports parsing of application/json type post data
 app.use(cors()); //alows cross-domain requests
-app.use('/business', businessRoute);
+app.use('/business', require('./business'));
 const port = 4000;
 
 const server = app.listen(port, ()=>{
